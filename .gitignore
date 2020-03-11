@@ -1,3 +1,6 @@
 venv
+wenv
 .idea
 .env
+*.sqlite3
+.gitignore
