@@ -3,7 +3,7 @@ from people.models import UserInfo
 
 
 class UserInfoSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField(read_only=True)
+    user = serializers.StringRelatedField()
 
     class Meta:
         model = UserInfo
