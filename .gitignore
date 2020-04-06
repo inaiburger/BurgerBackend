@@ -4,6 +4,7 @@ wenv
 .env
 *.sqlite3
 .gitignore
-static
-staticfiles
-
+staticfiles/admin
+staticfiles/drf-yasg
+staticfiles/rest_framework
+staticfiles/staticfiles.json
