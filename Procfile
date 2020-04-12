@@ -1,1 +1,1 @@
-web: gunicorn BurgerBackend.wsgi --log-file -
+web: gunicorn BurgerBackend.wsgi
