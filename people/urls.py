@@ -7,14 +7,6 @@ from drf_yasg import openapi
 
 from people.views import UserInfoListCreateView, UserInfoDetailView
 
-
-api_urlpatterns = [
-    path("users/", UserInfoListCreateView.as_view(), name="users"),
-    path("users/<int:pk>", UserInfoDetailView, name="user-info"),
-    path('token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-]
-
 schema_view = get_schema_view(
    openapi.Info(
       title="Snippets API",
@@ -25,7 +17,7 @@ schema_view = get_schema_view(
       license=openapi.License(name="BSD License"),
    ),
    public=True,
-   permission_classes=(permissions.IsAuthenticated,),
+   permission_classes=(permissions.IsAdminUser,),
 )
 
 docs_urlpatterns = [
@@ -36,7 +28,6 @@ docs_urlpatterns = [
 
 urlpatterns = [
     path('docs/', include(docs_urlpatterns)),
-    path('api/', include(api_urlpatterns)),
 
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
