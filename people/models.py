@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class UserInfo(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     birth_day = models.DateField(null=True)
     phone = models.CharField(max_length=20, null=True)
     news_latter_sub = models.BooleanField(default=False)

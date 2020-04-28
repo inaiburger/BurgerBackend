@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from django.contrib.auth.models import User
+from django.contrib.auth import admin as django_admin
 from people.models import UserInfo
 from food.models import Order
 
@@ -14,8 +15,7 @@ class OrderInline(admin.TabularInline):
     model = Order
 
 
-class UserAdmin(admin.ModelAdmin):
-    model = User
+class UserAdmin(django_admin.UserAdmin):
     inlines = [
         UserInfoInline,
         OrderInline
