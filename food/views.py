@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
 from rest_framework import permissions
+from food.permissions import CustomDjangoModelPermissions
 
 from food.models import Order, Ingredients, IngredientsClass
 from food.serializers import (
@@ -9,27 +10,24 @@ from food.serializers import (
 
 
 class OrderListCreateView(generics.ListCreateAPIView):
+    permission_classes = (
+        CustomDjangoModelPermissions,
+    )
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-    permission_classes = [
-        permissions.IsAuthenticated,
-        permissions.DjangoObjectPermissions,
-    ]
 
 
 class IngredientsListCreateView(generics.ListCreateAPIView):
+    permission_classes = (
+        CustomDjangoModelPermissions,
+    )
     queryset = Ingredients.objects.all()
     serializer_class = IngredientsSerializer
-    permission_classes = [
-        permissions.IsAuthenticated,
-        permissions.DjangoModelPermissions,
-    ]
 
 
 class IngredientsClassListCreateView(generics.ListCreateAPIView):
+    permission_classes = (
+        CustomDjangoModelPermissions,
+    )
     queryset = IngredientsClass.objects.all()
     serializer_class = IngredientsClassSerializer
-    permission_classes = [
-        permissions.IsAuthenticated,
-        permissions.DjangoModelPermissions,
-    ]
