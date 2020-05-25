@@ -26,3 +26,4 @@ class Order(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     ingredients = models.ManyToManyField(Ingredients)
     status = models.BooleanField(default=False)
+

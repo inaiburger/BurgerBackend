@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'people.apps.PeopleConfig',
     'food.apps.FoodConfig',
+    'news.apps.NewsConfig',
 ]
 
 MIDDLEWARE = [
